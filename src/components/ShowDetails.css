@@ -1,18 +1,23 @@
+.image-card {
+  flex: 1;
+  max-width: 100%; 
+  margin-bottom: 20px; 
+}
+
+.details-card {
+  flex: 1;
+  max-width: 100%; 
+  margin-bottom: 20px; 
+}
 
 
-@media (max-width: 767px) {
-    .container {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-  
-    .d-flex {
-      flex-direction: column;
-    }
-  
-    .card {
-      max-width: 100%;
-      margin-bottom: 10px;
-    }
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column; 
   }
-  
+
+  .image-card,
+  .details-card {
+    max-width: 100%; 
+  }
+}

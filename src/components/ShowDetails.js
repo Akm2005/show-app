@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
+import './ShowDetails.css'; 
 
 const ShowDetails = () => {
   const [showData, setShowData] = useState(null);
@@ -27,26 +28,23 @@ const ShowDetails = () => {
   }, [id]);
 
   const handleBookTicket = () => {
-    
     setShowForm(true);
   };
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-   
     alert(`Booking ticket for ${showData.name} - User: ${userData.name}, Email: ${userData.email}`);
-    
   };
 
   return (
     <div className="container mt-4">
       <div className="d-flex">
         {showData && (
-          <Card style={{ flex: 1, maxWidth: '400px', maxHeight: '700px' }}>
+          <Card className="image-card">
             <Card.Img variant="top" src={showData.image.original} />
           </Card>
         )}
-        <Card style={{ flex: 1, maxWidth: '700px', maxHeight: '700px' }}>
+        <Card className="details-card">
           <Card.Body>
             {showData && showData.name && <Card.Title>{showData.name}</Card.Title>}
             {showData && showData.genres && (
@@ -94,11 +92,11 @@ const ShowDetails = () => {
               <form onSubmit={handleSubmitForm}>
                 <label>
                   Name:
-                  <input type="text" value={userData.name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} />
+                  <input type="text" value={userData.name} onChange={(e) => setUserData({ ...userData, name: e.target.value })} required />
                 </label>
                 <label>
                   Email:
-                  <input type="email" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
+                  <input type="email" value={userData.email} onChange={(e) => setUserData({ ...userData, email: e.target.value })} required/>
                 </label>
                 <button type="submit">Submit</button>
               </form>
