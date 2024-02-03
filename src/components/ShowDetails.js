@@ -27,15 +27,15 @@ const ShowDetails = () => {
   }, [id]);
 
   const handleBookTicket = () => {
-    // Open the form for booking ticket
+    
     setShowForm(true);
   };
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    // Handle the form submission logic here (you can send the data to your API)
+   
     alert(`Booking ticket for ${showData.name} - User: ${userData.name}, Email: ${userData.email}`);
-    // For simplicity, I'm just alerting the pre-filled details here
+    
   };
 
   return (
